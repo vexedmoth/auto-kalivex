@@ -1,0 +1,89 @@
+
+#### RELOAD ####
+
+# Reload sxhkd config files
+alt + shift + s
+	pkill -USR1 -x sxhkd
+
+# Quit/restart bspwm
+alt + shift + {q,r}
+	bspc {quit,wm -r}
+
+#### PROGRAMS ####
+
+# Program launcher
+alt + m
+	rofi -show drun -modi drun
+
+# Open browser
+alt + b
+	/usr/bin/firejail /usr/bin/firefox
+
+#### WINDOWS ####
+
+# Open terminal
+alt + i
+	/usr/bin/alacritty
+
+# Close and kill window
+alt + {_,shift + }w
+	bspc node -{c,k}
+	
+# Fullscreen
+alt + {f,period}
+	bspc node -t '~{floating,fullscreen}'    
+
+# Resize window
+alt + ctrl + {h,j,k,l}
+	/home/vexedmoth/.config/bspwm/scripts/bspwm_resize {west,south,north,east}
+
+# Move window in the given direction
+alt + {_,shift + }{h,j,k,l}
+	bspc node -{f,s} {west,south,north,east}
+
+# Move next/previous window
+alt + {_,shift + }space
+	bspc node -f {next,prev}.local.!hidden.window
+
+# Workspaces
+alt + {_,shift + }{1-9,0}
+	bspc {desktop -f,node -d} focused:'^{1-9,10}'
+
+#Toggle between horizontal and vertical split
+alt + u
+	bspc node @parent -R 90
+
+#### PRESELECT ####
+
+# Preselect the direction
+alt + shift + {Left,Down,Up,Right}
+	bspc node -p {west,south,north,east}
+
+# Cancel the preselection for the focused node
+alt + Return
+	bspc node -p cancel
+
+#### SCREEN LOCK ####
+
+# Screen Lock
+alt + o
+	/usr/bin/i3lock-fancy	
+
+#### VOLUME ####
+
+# Increase volume
+ctrl + shift + Up
+	pamixer --increase 5
+
+# Decrease the volume
+ctrl + shift + Down 
+	pamixer --decrease 5
+
+# Mute/Restore volume
+ctrl + shift + m
+	pamixer --toggle-mute
+
+#### SCREENSHOTS ####
+
+alt + y
+	flameshot gui

@@ -1,0 +1,68 @@
+format = """
+[  ](#1ee613)\
+$username\
+$hostname\
+$directory\
+$git_branch\
+$git_state\
+$git_status\
+$cmd_duration\
+$line_break\
+$python\
+$character"""
+
+# Make prompt a single line instead of two lines
+# [line_break]
+# disabled = true
+
+
+[username]
+show_always = true
+style_user = "#1ee613 bold"
+style_root = "#F60909 bold"
+format = "[$user]($style)"
+
+[hostname]
+ssh_only = false
+disabled = false
+format = "[@$hostname](#1ee613 bold) "
+
+[directory]
+style = "#5f94e3"
+truncation_symbol = ".../"
+read_only = " "
+
+
+[character]
+success_symbol = "[❯](#2dc24f)"
+error_symbol = "[❯](#c22d2d)"
+vimcmd_symbol = "[❮](#bac22d)"
+
+
+[git_branch]
+symbol = ' '
+style = "#f56f42"
+
+[git_status]
+format = "[[(*$conflicted$untracked$modified$staged$renamed$deleted)](218) ($ahead_behind$stashed)]($style)"
+style = "#f56f42"
+conflicted = "​"
+untracked = "​"
+modified = "​"
+staged = "​"
+renamed = "​"
+deleted = "​"
+stashed = "≡"
+
+[git_state]
+format = '\([$state( $progress_current/$progress_total)]($style)\) '
+style = "bright-black"
+
+[cmd_duration]
+format = "[$duration]($style) "
+style = "yellow"
+
+[python]
+# format = "[$virtualenv]($style) "
+# style = "bright-black"
+symbol = " "
