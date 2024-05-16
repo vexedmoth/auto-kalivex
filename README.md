@@ -1,19 +1,29 @@
 # auto-kalivex
 > Auto installation of Kali Linux for Pentesting and Offensive Security
 
-## Installation
-1. Install available updates.
-
-```shell
-sudo apt update
-sudo apt upgrade -y
 ```
 
-2. Clone the repository and navigate to it.
+                           __                __  __  
+ _   _____  _  _____  ____/ /___ ___  ____  / /_/ /_ 
+| | / / _ \| |/_/ _ \/ __  / __ `__ \/ __ \/ __/ __ \ 
+| |/ /  __/>  </  __/ /_/ / / / / / / /_/ / /_/ / / /
+|___/\___/_/|_|\___/\__,_/_/ /_/ /_/\____/\__/_/ /_/  github.com/vexedmoth
+                                                     
+
+```
+
+## Installation
+1. Update and upgrade packages
 
 ```shell
-git clone https://github.com/r1vs3c/auto-bspwm.git
-cd auto-bspwm
+sudo apt update && sudo apt upgrade -y
+```
+
+2. Clone this repository
+
+```shell
+git clone https://github.com/vexedmoth/auto-kalivex
+cd auto-kalivex
 ```
 
 3. Grant execution permissions to the script.
