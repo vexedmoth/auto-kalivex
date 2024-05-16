@@ -19,23 +19,18 @@
 sudo apt update && sudo apt upgrade -y
 ```
 
-2. Clone this repository
+2. Clone this repo, grant permissions and execute the script
 
 ```shell
-git clone https://github.com/vexedmoth/auto-kalivex
+git clone https://github.com/vexedmoth/auto-kalivex.git
 cd auto-kalivex
-```
-
-3. Grant execution permissions to the script.
-
-```shell
 chmod +x setup.sh
-```
-
-4. Execute the script.
-
-```shell
 ./setup.sh
 ```
 
-5. After the script has finished, you will be prompted to restart the system. Once you have rebooted, select `bspwm` as the window manager and then log in.
+3. After the installation, the system will be rebooted. Then, select `bspwm` as the window manager and log in
+
+4. Then, run `nvim` and type this after `lazy.nvim` finishes downloading plugins:
+```vim
+:MasonInstallAll
+```
