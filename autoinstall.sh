@@ -6,7 +6,7 @@
 #| | / / _ \| |/_/ _ \/ __  / __ `__ \/ __ \/ __/ __ \ 
 #| |/ /  __/>  </  __/ /_/ / / / / / / /_/ / /_/ / / /
 #|___/\___/_/|_|\___/\__,_/_/ /_/ /_/\____/\__/_/ /_/ 
-#                                                     
+#
 
 
 # Colors
@@ -35,6 +35,13 @@ if [ "$user" == "root" ]; then
 	echo -e "\n\n${redColour}[!] You should not run the script as the root user!\n${endColour}"
     	exit 1
 else
+	echo "                              _           _  _                  "
+	echo "               _            | |         | |(_)                  "
+	echo " _____ _   _ _| |_ ___ _____| |  _ _____| | _ _   _ _____ _   _ "
+	echo "(____ | | | (_   _) _ (_____) |_/ |____ | || | | | | ___ ( \ / )"
+	echo "/ ___ | |_| | | || |_| |    |  _ (/ ___ | || |\ V /| ____|) X ( "
+	echo "\_____|____/   \__)___/     |_| \_)_____|\_)_| \_/ |_____|_/ \_)"
+
 	################### MAIN APT PACKAGES ###################
 	sleep 1
 	echo -e "\n\n${blueColour}[*] Installing main APT packages for the environment...\n${endColour}"
