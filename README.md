@@ -38,7 +38,13 @@ chmod +x autoinstall.sh
 
 3. After the installation, the system will be rebooted. Then, select `bspwm` as the window manager and log in
 
-4. Then, run `nvim` and type this after `lazy.nvim` finishes downloading plugins:
+4. Run `nvim` to check if configuration of `NvChad` is correct. If there is a problem, install it from zero:
+```shell
+rm -rf ~/.config/nvim
+git clone https://github.com/NvChad/starter ~/.config/nvim && nvim
+```
+
+Then, run `nvim` and type this after `lazy.nvim` finishes downloading plugins:
 ```vim
 :MasonInstallAll
 ```
