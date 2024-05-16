@@ -253,7 +253,8 @@ else
 	################### SET PERMISSIONS ###################
 	echo -e "\n${purpleColour}[*] Configuring necessary permissions...\n${endColour}"
 	sleep 2
-	sudo chmod +x /usr/local/bin/dotsup
+	chmod +x ~/.local/bin/dotsup
+	chmod -x ~/.local/bin/autoinstall.sh
 	chmod -R +x ~/.config/bspwm
 	chmod -R +x ~/.config/sxhkd
 	chmod +x ~/.config/polybar/launch.sh
