@@ -16,6 +16,10 @@
 > [!NOTE]  
 > This is an auto installation of Kali Linux for Pentesting and Offensive Security. You need to install a clean Kali Linux system before executing this
 
+> [!WARNING]
+> Avoid enable 3D acceleration using VirtualBox
+
+
 ## Installation
 1. Update and upgrade packages
 
