@@ -185,10 +185,10 @@ else
 	echo -e "\n${purpleColour}[*] Copying dotfiles bin backup...\n${endColour}"
 	sleep 2
 	if [[ -d "~/.local/bin" ]]; then
-		sudo cp -v $dir/dotsup ~/.local/bin
+		cp -v $dir/dotsup ~/.local/bin
 	else
 		mkdir -p ~/.local/bin
-		sudo cp -v $dir/dotsup ~/.local/bin
+		cp -v $dir/dotsup ~/.local/bin
 	fi
 	echo -e "\n${greenColour}[+] Done\n${endColour}"
 	sleep 1.5
