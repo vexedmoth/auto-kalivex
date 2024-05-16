@@ -39,7 +39,7 @@ else
 	sleep 1
 	echo -e "\n\n${blueColour}[*] Installing main APT packages for the environment...\n${endColour}"
 	sleep 2
-	sudo apt install -y alacritty rofi bspwm sxhkd polybar feh ranger i3lock-fancy tty-clock wmname firejail cmatrix htop btop neofetch python3-pip procps fzf bat pamixer flameshot 
+	sudo apt install -y alacritty rofi bspwm sxhkd polybar feh ranger i3lock-fancy tty-clock wmname firejail cmatrix htop btop neofetch python3-pip procps fzf bat pamixer flameshot
 	if [ $? != 0 ] && [ $? != 130 ]; then
 		echo -e "\n${redColour}[-] Failed to install some packages!\n${endColour}"
 		exit 1
@@ -177,14 +177,34 @@ else
 	fi
 
 	################### COPYING FILES ###################
-	echo -e "\n${blueColour}[*] Copying fonts, wallpaper, .config files...\n${endColour}"
+	echo -e "\n${blueColour}[*] Copying fonts, wallpaper, .config files, dotfiles bin backup...\n${endColour}"
 	sleep 0.5
 	cd
+
+	### dotfiles bin backup ###
+	echo -e "\n${purpleColour}[*] Copying dotfiles bin backup...\n${endColour}"
+	sleep 2
+	if [[ -d "~/.local/bin" ]]; then
+		sudo cp -v $dir/dotsup ~/.local/bin
+	else
+		mkdir -p ~/.local/bin
+		sudo cp -v $dir/dotsup ~/.local/bin
+	fi
+	echo -e "\n${greenColour}[+] Done\n${endColour}"
+	sleep 1.5
+
+	### autoinstall.sh ###
+	echo -e "\n${purpleColour}[*] Copying autoinstall.sh file...\n${endColour}"
+	sleep 2
+	cp -v $dir/autoinstall.sh ~/.local/bin
+	echo -e "\n${greenColour}[+] Done\n${endColour}"
+	sleep 1.5
 
 	### .zshrc ###
 	echo -e "\n${purpleColour}[*] Copying .zshrc file...\n${endColour}"
 	sleep 2
 	cp -v $dir/.zshrc ~/.zshrc
+	echo -e "\n${greenColour}[+] Done\n${endColour}"
 	sleep 1.5
 	
 	### Fonts ###
@@ -233,6 +253,7 @@ else
 	################### SET PERMISSIONS ###################
 	echo -e "\n${purpleColour}[*] Configuring necessary permissions...\n${endColour}"
 	sleep 2
+	sudo chmod +x /usr/local/bin/dotsup
 	chmod -R +x ~/.config/bspwm
 	chmod -R +x ~/.config/sxhkd
 	chmod +x ~/.config/polybar/launch.sh

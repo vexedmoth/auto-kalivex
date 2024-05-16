@@ -1,0 +1,60 @@
+#!/bin/bash
+
+password=""
+
+pass_var="Type password to update dotfiles: "
+
+# This will take password letter by letter
+while IFS= read -p "$pass_var" -r -s -n 1 letter
+do
+    # If you press enter then the condition is true and it exit the loop
+    if [[ $letter == $'\0' ]]
+    then
+        if [[ $password == "123" ]]; then
+            echo
+            #Path variables
+            DOTFILES_PATH="$HOME/auto-kalivex"
+
+            #Pull every change from GitHub
+            git -C $DOTFILES_PATH pull
+
+            #Delete all files from "dotfiles" dir except "Screenshots", "README.md" and ".git"
+            find $DOTFILES_PATH -mindepth 1 -not \( -name 'Screenshots' -prune -or -name '.git' -prune -or -name 'README.md' \) -exec rm -rf '{}' \;
+
+            #Update ".config" dir
+            mkdir $DOTFILES_PATH/.config
+            cp -rv $HOME/.config/alacritty $DOTFILES_PATH/.config
+            cp -rv $HOME/.config/bspwm $DOTFILES_PATH/.config
+            cp -rv $HOME/.config/nano $DOTFILES_PATH/.config
+            cp -rv $HOME/.config/rofi $DOTFILES_PATH/.config
+            cp -rv $HOME/.config/picom $DOTFILES_PATH/.config
+            cp -rv $HOME/.config/polybar $DOTFILES_PATH/.config
+            cp -rv $HOME/.config/sxhkd $DOTFILES_PATH/.config
+            cp -rv $HOME/.config/nvim $DOTFILES_PATH/.config
+            cp -rv $HOME/.config/starship.toml $DOTFILES_PATH/.config
+
+            #Update rest of the files
+            cp -rv $HOME/.local/bin/dotsup $DOTFILES_PATH
+            cp -rv $HOME/.local/bin/autoinstall.sh $DOTFILES_PATH
+            cp -rv $HOME/.local/share/fonts $DOTFILES_PATH
+            cp -rv $HOME/Wallpapers $DOTFILES_PATH
+            cp -rv $HOME/.zshrc $DOTFILES_PATH
+
+            #Add commit and push
+            git -C $DOTFILES_PATH add .
+            git -C $DOTFILES_PATH commit -m "update dotfiles"
+            git -C $DOTFILES_PATH push
+        else
+            echo
+            echo -n "Password is not correct"
+            exit 1
+        fi
+        break
+    fi
+    
+    # The letter will store in password variable
+    password="$password$letter"
+    
+    # In place of password the asterisk (*) will printed
+    pass_var="*"
+done
