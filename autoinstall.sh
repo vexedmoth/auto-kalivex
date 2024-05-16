@@ -164,7 +164,6 @@ else
 	curl -L -o nvim.tar.gz $latest_nvim_version
 	tar xzvf nvim.tar.gz
 	sudo mv nvim-linux64 /opt/
-	git clone https://github.com/NvChad/starter ~/.config/nvim
 	sleep 1.5
 	if [ $? != 0 ] && [ $? != 130 ]; then
 		echo -e "\n${redColour}[-] Failed to install Nvchad!\n${endColour}"
