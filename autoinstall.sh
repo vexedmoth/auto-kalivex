@@ -39,7 +39,7 @@ else
 	sleep 1
 	echo -e "\n\n${blueColour}[*] Installing main APT packages for the environment...\n${endColour}"
 	sleep 2
-	sudo apt install -y alacritty rofi bspwm sxhkd polybar feh ranger i3lock-fancy tty-clock wmname firejail cmatrix htop btop neofetch python3-pip procps fzf bat pamixer flameshot
+	sudo apt install -y alacritty rofi bspwm sxhkd polybar feh ranger i3lock-fancy tty-clock wmname firejail cmatrix htop btop neofetch python3-pip procps fzf bat pamixer flameshot acpi
 	if [ $? != 0 ] && [ $? != 130 ]; then
 		echo -e "\n${redColour}[-] Failed to install some packages!\n${endColour}"
 		exit 1
@@ -55,7 +55,7 @@ else
 	### exa ###
 	echo -e "\n${purpleColour}[*] Installing necessary dependencies for exa...\n${endColour}"
 	sleep 2
-	sudo apt install libgit2-dev rustc
+	sudo apt install -y libgit2-dev rustc
 	sudo apt-mark auto rustc
 	if [ $? != 0 ] && [ $? != 130 ]; then
 		echo -e "\n${redColour}[-] Failed to install some dependencies for exa!\n${endColour}"
@@ -117,8 +117,8 @@ else
 	echo -e "\n${purpleColour}[*] Installing Oh My Zsh + plugins...\n${endColour}"
 	sleep 2
 	sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
-	git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh_my_zsh/custom/plugins
-	git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh_my_zsh/custom/plugins
+	git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+	git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 	sleep 1.5
 	if [ $? != 0 ] && [ $? != 130 ]; then
 		echo -e "\n${redColour}[-] Failed to install Oh My Zsh + plugins\n${endColour}"
@@ -131,10 +131,10 @@ else
 	### Starship ###
 	echo -e "\n${purpleColour}[*] Installing starship...\n${endColour}"
 	sleep 2
-	curl -sS https://starship.rs/install.sh | sh
+	curl -sS https://starship.rs/install.sh | sh -s -- -y
 	sleep 1.5
 	if [ $? != 0 ] && [ $? != 130 ]; then
-		echo -e "\n${redColour}[-] Failed to install starship for user $user!\n${endColour}"
+		echo -e "\n${redColour}[-] Failed to install starship!\n${endColour}"
 		exit 1
 	else
 		echo -e "\n${greenColour}[+] Done\n${endColour}"
@@ -240,6 +240,7 @@ else
 	################### SYMBOLIC LINKS ###################
 	echo -e "\n${purpleColour}[*] Setting symbolic links...\n${endColour}"
 	sleep 2
+	sudo mkdir -p /root/.config
 	sudo ln -sfv ~/.zshrc /root/.zshrc
 	sudo ln -sfv ~/.oh-my-zsh  /root/.oh-my-zsh
 	sudo ln -sfv ~/.config/starship.toml  /root/.config/starship.toml
@@ -270,11 +271,11 @@ else
 
 	echo -e "\n${purpleColour}[*] Cleaning...\n${endColour}"
 	sleep 2
-	sudo apt purge --autoremove
+	sudo apt purge --autoremove -y
 	echo -e "\n${greenColour}[+] Done\n${endColour}"
 	sleep 1.5
 
-	echo -e "\n${greenColour}[+] Environment configured :D\n${endColour}"
+	echo -e "\n${greenColour}[+] Full installed. You became a h4ck3r.\n${endColour}"
 	sleep 1.5
 
 	while true; do
