@@ -23,22 +23,22 @@ do
 
             #Update ".config" dir
             mkdir $DOTFILES_PATH/.config
-            cp -rv $HOME/.config/alacritty $DOTFILES_PATH/.config
-            cp -rv $HOME/.config/bspwm $DOTFILES_PATH/.config
-            cp -rv $HOME/.config/nano $DOTFILES_PATH/.config
-            cp -rv $HOME/.config/rofi $DOTFILES_PATH/.config
-            cp -rv $HOME/.config/picom $DOTFILES_PATH/.config
-            cp -rv $HOME/.config/polybar $DOTFILES_PATH/.config
-            cp -rv $HOME/.config/sxhkd $DOTFILES_PATH/.config
-            cp -rv $HOME/.config/nvim $DOTFILES_PATH/.config
-            cp -rv $HOME/.config/starship.toml $DOTFILES_PATH/.config
+            cp -r $HOME/.config/alacritty $DOTFILES_PATH/.config
+            cp -r $HOME/.config/bspwm $DOTFILES_PATH/.config
+            cp -r $HOME/.config/nano $DOTFILES_PATH/.config
+            cp -r $HOME/.config/rofi $DOTFILES_PATH/.config
+            cp -r $HOME/.config/picom $DOTFILES_PATH/.config
+            cp -r $HOME/.config/polybar $DOTFILES_PATH/.config
+            cp -r $HOME/.config/sxhkd $DOTFILES_PATH/.config
+            cp -r $HOME/.config/nvim $DOTFILES_PATH/.config
+            cp -r $HOME/.config/starship.toml $DOTFILES_PATH/.config
 
             #Update rest of the files
-            cp -rv $HOME/.local/bin/dotsup $DOTFILES_PATH
-            cp -rv $HOME/.local/bin/autoinstall.sh $DOTFILES_PATH
-            cp -rv $HOME/.local/share/fonts $DOTFILES_PATH
-            cp -rv $HOME/Wallpapers $DOTFILES_PATH
-            cp -rv $HOME/.zshrc $DOTFILES_PATH
+            cp -r $HOME/.local/bin/dotsup $DOTFILES_PATH
+            cp -r $HOME/.local/bin/autoinstall.sh $DOTFILES_PATH
+            cp -r $HOME/.local/share/fonts $DOTFILES_PATH
+            cp -r $HOME/Wallpapers $DOTFILES_PATH
+            cp -r $HOME/.zshrc $DOTFILES_PATH
 
             #Add commit and push
             git -C $DOTFILES_PATH add .
