@@ -9,6 +9,10 @@
 |___/\___/_/|_|\___/\__,_/_/ /_/ /_/\____/\__/_/ /_/  github.com/vexedmoth
                                                      
 ```
+![DE1](Screenshots/screenshot1.png)
+![DE2](Screenshots/screenshot2.png)
+
+
 > [!NOTE]  
 > This is an auto installation of Kali Linux for Pentesting and Offensive Security. You need to install a clean Kali Linux system before executing this
 
