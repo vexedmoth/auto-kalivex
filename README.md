@@ -54,4 +54,11 @@
    :MasonInstallAll
    ```
 
+5. Configure the Github [SSH keys](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) in order to enable backups using `dotsup` file
+    - Once this is done, fork this repo, clone it into your system and **keep it without changing any file**.
+    - By executing `dotsup` in your terminal your config files will be automatically backed up on your own GitHub repo.
+    
+7. Clone your own `Obsidian` repo and link it
+8. Install super h4ck3er packages like `Burpsuite Pro` 
+
 
