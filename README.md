@@ -68,4 +68,5 @@
 8. Install super h4ck3er packages like `Burpsuite Pro`
 
 
-
+## Credits
+- Honorable mention to [S4vitar's](https://github.com/s4vitar) environment. 
