@@ -1,5 +1,11 @@
 # auto-kalivex
 
+<meta name="name" content="vexedmoth">
+<meta name="description" content="This is an auto installation of Kali Linux for Pentesting and Offensive Security. You need to install a clean Kali Linux system before executing this">
+<meta name="copyright" content="vexedmoth 2024">
+<meta name="keywords" content="auto-bspwm, auto-install, kali, kali linux, auto bspwm, auto kali, auto installation, kali linux automatic installation ...">
+
+
 ```
 
                            __                __  __  
@@ -59,6 +65,7 @@
     - By executing `dotsup` in your terminal your config files will be automatically backed up on your own GitHub repo.
     
 7. Clone your own `Obsidian` repo and link it
-8. Install super h4ck3er packages like `Burpsuite Pro` 
+8. Install super h4ck3er packages like `Burpsuite Pro`
+
 
 
