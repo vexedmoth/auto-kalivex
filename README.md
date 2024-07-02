@@ -27,13 +27,19 @@
 
 
 ## Installation
-1. Update and upgrade packages
+1. In case you are going to use Brave as default browser, then add the brave packages to Debian official repo:
+
+    ```shell
+    sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
+    echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg] https://brave-browser-apt-release.s3.brave.com/ stable main"|sudo tee /etc/apt/sources.list.d/brave-browser-release.list
+    ```
+2. Update and upgrade packages
     
     ```shell
     sudo apt update && sudo apt upgrade -y
     ```
 
-2. Clone this repo, grant permissions and execute the script
+3. Clone this repo, grant permissions and execute the script
 
     ```shell
     git clone https://github.com/vexedmoth/auto-kalivex.git
@@ -42,9 +48,9 @@
     ./autoinstall.sh
     ```
 
-3. After the installation, the system will be rebooted. Then, select `bspwm` as the window manager and log in
+4. After the installation, the system will be rebooted. Then, select `bspwm` as the window manager and log in
 
-4. Run `nvim` to check if configuration of `NvChad` is correct.
+5. Run `nvim` to check if configuration of `NvChad` is correct.
 
     If there is no problem, then after `lazy.nvim` finishes downloading plugins type:
    ```vim
@@ -60,8 +66,8 @@
    :MasonInstallAll
    ```
 
-5. Configure the Github [SSH keys](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) in order to enable backups using `dotsup` file
-    - Once this is done, fork this repo, clone it into your system and **keep it without changing any file**.
+6. Configure the Github [SSH keys](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) in order to enable backups using `dotsup` file
+    - Once this is done, fork this repo, clone it into your system and **_keep it without changing any file_**.
     - By executing `dotsup` in your terminal your config files will be automatically backed up on your own GitHub repo.
     
 7. Clone your own `Obsidian` repo and link it
