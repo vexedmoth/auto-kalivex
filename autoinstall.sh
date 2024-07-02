@@ -46,7 +46,7 @@ else
 	sleep 1
 	echo -e "\n\n${blueColour}[*] Installing main APT packages for the environment...\n${endColour}"
 	sleep 2
-	sudo apt install -y alacritty rofi bspwm sxhkd polybar feh ranger i3lock-fancy tty-clock wmname cmatrix htop btop neofetch python3-pip procps fzf bat pamixer flameshot acpi
+	sudo apt install -y alacritty rofi bspwm sxhkd polybar feh ranger brave-browser i3lock-fancy tty-clock wmname cmatrix htop btop neofetch python3-pip procps fzf bat pamixer flameshot acpi
 	if [ $? != 0 ] && [ $? != 130 ]; then
 		echo -e "\n${redColour}[-] Failed to install some packages!\n${endColour}"
 		exit 1
