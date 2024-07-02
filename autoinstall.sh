@@ -171,14 +171,33 @@ else
 	curl -L -o nvim.tar.gz $latest_nvim_version
 	tar xzvf nvim.tar.gz
 	sudo mv nvim-linux64 /opt/
+	git clone https://github.com/NvChad/starter ~/.config/nvim
 	sleep 1.5
 	if [ $? != 0 ] && [ $? != 130 ]; then
 		echo -e "\n${redColour}[-] Failed to install Nvchad!\n${endColour}"
 		exit 1
 	else
-		cd 
+		cd
+        	rm -rf ~/.config/nvim/.git
 		rm -rf nvim.tar.gz
 		echo -e "\n${greenColour}[+] Done\n${endColour}"
+		sleep 1.5
+	fi
+
+	### Firejail ###
+	echo -e "\n${purpleColour}[*] Installing Firejail...\n${endColour}"
+	sleep 2
+	git clone https://github.com/netblue30/firejail.git
+	cd firejail
+	./configure && make && sudo make install-strip
+	sleep 1.5
+	if [ $? != 0 ] && [ $? != 130 ]; then
+		echo -e "\n${redColour}[-] Failed to install Firejail!\n${endColour}"
+		exit 1
+	else
+		echo -e "\n${greenColour}[+] Done\n${endColour}"
+		cd
+		rm -rf firejail
 		sleep 1.5
 	fi
 
@@ -212,7 +231,7 @@ else
 	cp -v $dir/.zshrc ~/.zshrc
 	echo -e "\n${greenColour}[+] Done\n${endColour}"
 	sleep 1.5
-	
+
 	### Fonts ###
 	echo -e "\n${purpleColour}[*] Copying fonts...\n${endColour}"
 	sleep 2

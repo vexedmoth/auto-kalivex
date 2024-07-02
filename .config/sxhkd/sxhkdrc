@@ -17,7 +17,7 @@ alt + m
 
 # Open browser
 alt + b
-	/usr/bin/firejail /usr/bin/firefox
+	/usr/local/bin/firejail /usr/bin/brave-browser
 
 #### WINDOWS ####
 
